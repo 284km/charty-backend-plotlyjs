@@ -1,6 +1,6 @@
 require "test_helper"
 
-class Charty::Backend::PlotlyjsTest < Minitest::Test
+class Charty::Backend::PlotlyjsTest < Test::Unit::TestCase
   def test_that_it_has_a_version_number
     refute_nil ::Charty::Backend::Plotlyjs::VERSION
   end
