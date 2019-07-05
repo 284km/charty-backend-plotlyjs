@@ -1,5 +1,3 @@
-require "charty"
-
 module Charty
   class RenderContext
     def json

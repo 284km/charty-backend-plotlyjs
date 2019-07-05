@@ -1,4 +1,5 @@
 require "charty/backend/plotlyjs/version"
+require "charty"
 
 module Charty
   module Backend
