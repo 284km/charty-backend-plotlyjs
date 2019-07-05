@@ -5,13 +5,6 @@ module Charty
     end
   end
 
-  class Plotter
-    def table=(data, **kwargs)
-      return @table = data if data.kind_of?(Array)
-      @table = Charty::Table.new(data)
-    end
-  end
-
   class Plotlyjs < PlotterAdapter
     Name = "plotlyjs"
 
