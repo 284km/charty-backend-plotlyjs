@@ -56,7 +56,7 @@ module Charty
           {
             x: data.xs.to_a,
             y: data.ys.to_a,
-            type: "#{context.method}",
+            type: 'bar',
             orientation: 'h',
             marker: {
               color: '#66ff66',
