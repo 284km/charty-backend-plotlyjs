@@ -39,15 +39,30 @@ module Charty
       # waterfall
       # pie
       # sunburst
-      context.series.map do |data|
-        {
-          x: data.xs.to_a,
-          y: data.ys.to_a,
-          type: "#{context.method}",
-          marker: {
-            color: '#66ff66',
+      case context.method
+      when :bar
+        context.series.map do |data|
+          {
+            x: data.xs.to_a,
+            y: data.ys.to_a,
+            type: "#{context.method}",
+            marker: {
+              color: '#66ff66',
+            }
           }
-        }
+        end
+      when :barh
+        context.series.map do |data|
+          {
+            x: data.xs.to_a,
+            y: data.ys.to_a,
+            type: "#{context.method}",
+            orientation: 'h',
+            marker: {
+              color: '#66ff66',
+            }
+          }
+        end
       end
     end
   end
