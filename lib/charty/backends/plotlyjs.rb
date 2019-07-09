@@ -1,7 +1,11 @@
 module Charty
   class RenderContext
-    def json
-      @plotter_adapter.json(self)
+    def data
+      @plotter_adapter.data(self)
+    end
+
+    def to_json
+      @plotter_adapter.to_json(self)
     end
   end
 
@@ -20,7 +24,12 @@ module Charty
       @series = series
     end
 
-    def json(context)
+    def to_json(context)
+      require 'json'
+      data(context).to_json
+    end
+
+    def data(context)
       # scatter
       # bar
       # heatmap
@@ -30,7 +39,6 @@ module Charty
       # waterfall
       # pie
       # sunburst
-      require 'json'
       context.series.map do |data|
         {
           x: data.xs.to_a,
@@ -40,7 +48,7 @@ module Charty
             color: '#66ff66',
           }
         }
-      end.to_json
+      end
     end
   end
 end
