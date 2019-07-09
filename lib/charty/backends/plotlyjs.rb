@@ -35,7 +35,10 @@ module Charty
         {
           x: data.xs.to_a,
           y: data.ys.to_a,
-          type: 'bar'
+          type: "#{context.method}",
+          marker: {
+            color: '#66ff66',
+          }
         }
       end.to_json
     end
