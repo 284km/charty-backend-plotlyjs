@@ -42,14 +42,30 @@ module Charty
       case context.method
       when :bar
         context.series.map do |data|
-          {
-            x: data.xs.to_a,
-            y: data.ys.to_a,
+          y_minus = data.ys.select{|i| i < 0}
+          x_minus = data.xs[0..(y_minus.size - 1)]
+          y_plus = data.ys.select{|i| i >= 0}
+          x_plus = data.xs[y_minus.size..-1]
+          minus_color = '#cccccc'
+          plus_color = '#66ff66'
+
+          minus = {
+            x: x_minus,
+            y: y_minus,
             type: "#{context.method}",
             marker: {
-              color: '#66ff66',
+              color: "#{minus_color}",
             }
           }
+          plus = {
+            x: x_plus,
+            y: y_plus,
+            type: "#{context.method}",
+            marker: {
+              color: "#{plus_color}",
+            }
+          }
+          [minus, plus]
         end
       when :barh
         context.series.map do |data|
