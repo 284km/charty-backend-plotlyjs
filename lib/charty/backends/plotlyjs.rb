@@ -70,9 +70,9 @@ module Charty
       when :barh
         context.series.map do |data|
           x_minus = data.xs.select{|i| i < 0}
-          y_minus = data.ys[-1..(-1 - x_minus.size)]
+          y_minus = data.ys[(data.xs.size - x_minus.size)..-1]
           x_plus = data.xs.select{|i| i >= 0}
-          y_plus = data.ys[-1..(-1 - x_minus.size)]
+          y_plus = data.ys[0..(x_minus.size - 1)]
           minus_color = '#cccccc'
           plus_color = '#66ff66'
 
