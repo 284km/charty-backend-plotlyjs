@@ -1,7 +1,7 @@
 module Charty
   class RenderContext
     def data
-      @plotter_adapter.data(self)
+      @plotter_adapter.data(self)[0]
     end
 
     def to_json
@@ -26,7 +26,7 @@ module Charty
 
     def to_json(context)
       require 'json'
-      data(context).to_json
+      data(context)[0].to_json
     end
 
     def data(context)
