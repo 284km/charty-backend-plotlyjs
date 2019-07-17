@@ -94,7 +94,7 @@ module Charty
               color: "#{plus_color}",
             }
           }
-          [minus, plus]
+          [plus, minus]
         end
       end
     end
