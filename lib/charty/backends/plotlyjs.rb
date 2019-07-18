@@ -30,6 +30,11 @@ module Charty
     end
 
     def data(context)
+      # minus_color = '#cccccc'
+      # plus_color = '#66ff66'
+      minus_color = '#999999'
+      plus_color = '#00d42f'
+
       # scatter
       # bar
       # heatmap
@@ -46,8 +51,6 @@ module Charty
           x_minus = data.xs[0..(y_minus.size - 1)]
           y_plus = data.ys.select{|i| i >= 0}
           x_plus = data.xs[y_minus.size..-1]
-          minus_color = '#cccccc'
-          plus_color = '#66ff66'
 
           minus = {
             x: x_minus,
@@ -73,8 +76,6 @@ module Charty
           y_plus = data.ys[0..(x_plus.size - 1)]
           x_minus = data.xs.select{|i| i < 0}
           y_minus = data.ys[x_plus.size..-1]
-          minus_color = '#cccccc'
-          plus_color = '#66ff66'
 
           minus = {
             x: x_minus,
